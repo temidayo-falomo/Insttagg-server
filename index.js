@@ -34,7 +34,7 @@ app.use("/api/messages", messageRouter);
 
 mongoose
   .connect(
-    `mongodb+srv://temidayo:${process.env.MONGODB_PASSWORD}@undev.nc7mk.mongodb.net/undev?retryWrites=true&w=majority`
+    `mongodb+srv://temidayo:H26VmfkBFuvc5Het@undev.nc7mk.mongodb.net/undev?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(process.env.PORT || 5600);

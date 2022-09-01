@@ -70,7 +70,7 @@ export const logIn = async (req, res, next) => {
   //IF password is correct, generate jwt token.
   //Its somewhat important to note that the JWT is encoding only the id of the existingUser object s
 
-  const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET_KEY, {
+  const token = jwt.sign({ id: existingUser._id }, "MyKeyXo", {
     expiresIn: "20days",
   });
 
@@ -102,7 +102,7 @@ export const verifyToken = async (req, res, next) => {
   if (!token) {
     return res.status(404).json({ message: "No Token Found" });
   }
-  jwt.verify(String(token), process.env.JWT_SECRET_KEY, (err, user) => {
+  jwt.verify(String(token), "MyKeyXo", (err, user) => {
     if (err) {
       return res.status(400).json({ message: "Invalid Token" });
     }
@@ -139,7 +139,7 @@ export const refreshToken = (req, res, next) => {
   if (!prevToken) {
     return res.status(400).json({ message: "Couldn't Find Token" });
   }
-  jwt.verify(String(prevToken), process.env.JWT_SECRET_KEY, (err, user) => {
+  jwt.verify(String(prevToken), "MyKeyXo", (err, user) => {
     if (err) {
       console.log(err);
       return res.status(403).json({ message: "Auth Failed" });
@@ -148,7 +148,7 @@ export const refreshToken = (req, res, next) => {
     res.clearCookie(`${user.id}`);
     req.cookies[`${user.id}`] = "";
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, {
+    const token = jwt.sign({ id: user.id }, "MyKeyXo", {
       expiresIn: "20days",
     });
 
