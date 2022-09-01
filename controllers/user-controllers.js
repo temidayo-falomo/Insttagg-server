@@ -83,7 +83,7 @@ export const logIn = async (req, res, next) => {
     // expires: new Date(Date.now() + 1000 * 1000),
     sameSite: "none",
     secure: true,
-    // domain: "https://stalwart-cajeta-e7411b.netlify.app",
+    domain: "https://stalwart-cajeta-e7411b.netlify.app",
     httpOnly: true,
   });
 
@@ -161,7 +161,7 @@ export const refreshToken = (req, res, next) => {
       // secure: false,
       sameSite: "none",
       secure: true,
-      // domain: "https://stalwart-cajeta-e7411b.netlify.app",
+      domain: "https://stalwart-cajeta-e7411b.netlify.app",
       httpOnly: true,
     });
 
