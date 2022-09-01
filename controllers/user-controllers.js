@@ -155,9 +155,12 @@ export const refreshToken = (req, res, next) => {
     res.cookie(String(user.id), token, {
       path: "/",
       // expires: new Date(Date.now() + 1000 * 1000),
+      // httpOnly: true,
+      // sameSite: "none",
+      // secure: false,
+      sameSite: "none",
+      secure: true,
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
     });
 
     req.id = user.id;
