@@ -14,13 +14,12 @@ const app = express();
 app.use(
   cors({
     origin: [
+      "https://stalwart-cajeta-e7411b.netlify.app",
       "https://api.cloudinary.com",
       "http://localhost:3001",
-      "http://localhost:3000",
       "http://localhost:5600/api",
       "https://random-word-api.herokuapp.com/word",
       "https://www.passwordrandom.com",
-      "https://stalwart-cajeta-e7411b.netlify.app/",
     ],
     credentials: true,
   })
