@@ -20,6 +20,7 @@ app.use(
       "http://localhost:5600/api",
       "https://random-word-api.herokuapp.com/word",
       "https://www.passwordrandom.com",
+      "https://stalwart-cajeta-e7411b.netlify.app/",
     ],
     credentials: true,
   })

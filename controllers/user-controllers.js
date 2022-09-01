@@ -81,9 +81,10 @@ export const logIn = async (req, res, next) => {
   res.cookie(String(existingUser._id), token, {
     path: "/",
     // expires: new Date(Date.now() + 1000 * 1000),
+    sameSite: "none",
+    secure: true,
+    domain: "https://stalwart-cajeta-e7411b.netlify.app/",
     httpOnly: true,
-    sameSite: "lax",
-    secure: false,
   });
 
   return res.status(200).json({
@@ -160,6 +161,7 @@ export const refreshToken = (req, res, next) => {
       // secure: false,
       sameSite: "none",
       secure: true,
+      domain: "https://stalwart-cajeta-e7411b.netlify.app/",
       httpOnly: true,
     });
 
