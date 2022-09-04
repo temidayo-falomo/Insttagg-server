@@ -1,32 +1,34 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import userRouter from "./routes/user-routes";
 import dotenv from "dotenv";
 dotenv.config();
-
 import cookieParser from "cookie-parser";
+
+import userRouter from "./routes/user-routes";
 import postRouter from "./routes/post-routes";
 import bookmarkRouter from "./routes/bookmark-routes";
 import messageRouter from "./routes/message-routes";
 
 const app = express();
+
 app.use(
   cors({
     origin: [
-      "https://stalwart-cajeta-e7411b.netlify.app",
+      "https://insttagg.herokuapp.com",
       "https://api.cloudinary.com",
-      "http://localhost:3001",
-      "http://localhost:5600/api",
+      "http://localhost:3000",
       "https://random-word-api.herokuapp.com/word",
       "https://www.passwordrandom.com",
     ],
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
-app.set('trust proxy', 1);
+
+app.set("trust proxy", 1);
 
 app.use("/api", userRouter);
 app.use("/api/posts", postRouter);

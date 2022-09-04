@@ -83,7 +83,7 @@ export const logIn = async (req, res, next) => {
     // expires: new Date(Date.now() + 1000 * 1000),
     sameSite: "none",
     secure: true,
-    domain: "https://stalwart-cajeta-e7411b.netlify.app",
+    domain: "https://insttagg.herokuapp.com",
     httpOnly: true,
   });
 
@@ -156,12 +156,9 @@ export const refreshToken = (req, res, next) => {
     res.cookie(String(user.id), token, {
       path: "/",
       // expires: new Date(Date.now() + 1000 * 1000),
-      // httpOnly: true,
-      // sameSite: "none",
-      // secure: false,
       sameSite: "none",
       secure: true,
-      domain: "https://stalwart-cajeta-e7411b.netlify.app",
+      domain: "https://insttagg.herokuapp.com",
       httpOnly: true,
     });
 
