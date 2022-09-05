@@ -79,10 +79,11 @@ export const logIn = async (req, res, next) => {
   res.clearCookie();
 
   res.cookie(String(existingUser._id), token, {
-    expires: "Fri, 31 Dec 9999 23:59:59 GMT",
+    // path: "/",
+    // expires: new Date(Date.now() + 1000 * 1000),
     sameSite: "none",
     secure: true,
-    // maxAge: 1000 * 60 * 60,
+    maxAge: 10000 * 60 * 60,
     // domain: "https://insttagg.herokuapp.com",
   });
 
@@ -153,12 +154,13 @@ export const refreshToken = (req, res, next) => {
     });
 
     res.cookie(String(user.id), token, {
+      // path: "/",
       // expires: new Date(Date.now() + 10000 * 10000),
-      expires: "Fri, 31 Dec 9999 23:59:59 GMT",
       sameSite: "none",
       secure: true,
-      // maxAge: 1000 * 60 * 60,
+      maxAge: 10000 * 60 * 60,
       // domain: "https://insttagg.herokuapp.com",
+      // httpOnly: true,
     });
 
     req.id = user.id;
