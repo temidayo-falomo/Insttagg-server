@@ -79,7 +79,7 @@ export const logIn = async (req, res, next) => {
   res.clearCookie();
 
   res.cookie(String(existingUser._id), token, {
-    // path: "/",
+    path: "/",
     // expires: new Date(Date.now() + 1000 * 1000),
     sameSite: "none",
     secure: true,
@@ -154,7 +154,7 @@ export const refreshToken = (req, res, next) => {
     });
 
     res.cookie(String(user.id), token, {
-      // path: "/",
+      path: "/",
       // expires: new Date(Date.now() + 10000 * 10000),
       sameSite: "none",
       secure: true,
