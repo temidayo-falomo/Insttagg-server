@@ -85,7 +85,6 @@ export const logIn = async (req, res, next) => {
     secure: true,
     maxAge: 10000 * 60 * 60,
     overwrite: true,
-    httpOnly: false,
     // domain: "https://insttagg.herokuapp.com",
   });
 
@@ -100,8 +99,13 @@ export const logIn = async (req, res, next) => {
 
 export const verifyToken = async (req, res, next) => {
   const cookies = req.headers.cookie;
+  let token;
+
   //"cookies" return two different strings = each other, which are id(name) and value(token)
-  const token = cookies.split("=")[1];
+  if (cookies) {
+    token = cookies.split("=")[1];
+  }
+
   if (!token) {
     return res.status(404).json({ message: "No Token Found" });
   }
@@ -163,7 +167,6 @@ export const refreshToken = (req, res, next) => {
       maxAge: 10000 * 60 * 60,
       overwrite: true,
       // domain: "https://insttagg.herokuapp.com",
-      httpOnly: false,
     });
 
     req.id = user.id;
