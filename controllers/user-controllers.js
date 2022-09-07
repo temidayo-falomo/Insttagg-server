@@ -85,6 +85,7 @@ export const logIn = async (req, res, next) => {
     secure: true,
     maxAge: 10000 * 60 * 60,
     overwrite: true,
+    httpOnly: false,
     // domain: "https://insttagg.herokuapp.com",
   });
 
@@ -123,7 +124,7 @@ export const getUser = async (req, res, next) => {
   try {
     user = await User.findById(userId, "-password");
   } catch (error) {
-    return new Error(err);
+    return res.status(404).json({ message: "Something went wrong." });
   }
 
   if (!user) {
@@ -162,7 +163,7 @@ export const refreshToken = (req, res, next) => {
       maxAge: 10000 * 60 * 60,
       overwrite: true,
       // domain: "https://insttagg.herokuapp.com",
-      // httpOnly: true,
+      httpOnly: false,
     });
 
     req.id = user.id;
