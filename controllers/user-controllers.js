@@ -71,7 +71,7 @@ export const logIn = async (req, res, next) => {
   //Its somewhat important to note that the JWT is encoding only the id of the existingUser object s
 
   const token = jwt.sign({ id: existingUser._id }, "MyKeyXo", {
-    expiresIn: "20days",
+    expiresIn: "7d",
   });
 
   //Storing Stuff in a cookie(Reference Postman Cookies Tab for Context)
@@ -84,6 +84,7 @@ export const logIn = async (req, res, next) => {
     sameSite: "none",
     secure: true,
     maxAge: 10000 * 60 * 60,
+    overwrite: true,
     // domain: "https://insttagg.herokuapp.com",
   });
 
@@ -150,7 +151,7 @@ export const refreshToken = (req, res, next) => {
     req.cookies[`${user.id}`] = "";
 
     const token = jwt.sign({ id: user.id }, "MyKeyXo", {
-      expiresIn: "20days",
+      expiresIn: "7d",
     });
 
     res.cookie(String(user.id), token, {
@@ -159,6 +160,7 @@ export const refreshToken = (req, res, next) => {
       sameSite: "none",
       secure: true,
       maxAge: 10000 * 60 * 60,
+      overwrite: true,
       // domain: "https://insttagg.herokuapp.com",
       // httpOnly: true,
     });
