@@ -76,9 +76,9 @@ export const logIn = async (req, res, next) => {
 
   //Storing Stuff in a cookie(Reference Postman Cookies Tab for Context)
 
-  res.clearCookie();
+  res.clearCookie("COOKIE_KEY");
 
-  res.cookie(String(existingUser._id), token, {
+  res.cookie("COOKIE_KEY", token, {
     // path: "/",
     // expires: new Date(Date.now() + 1000 * 1000),
     sameSite: "none",
