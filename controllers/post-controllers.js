@@ -213,3 +213,22 @@ export const dislikePost = async (req, res, next) => {
 
   return res.status(200).json({ message: "Successfully Disliked fr" });
 };
+
+export const findUserPosts = async (req, res) => {
+  const userId = req.params.id;
+  let posts;
+
+  try {
+    posts = await Post.find({ userInfoName: userId });
+  } catch (error) {
+    return res
+      .status(404)
+      .json({ message: "Unable to find this User's Posts" });
+  }
+
+  if (!posts) {
+    return res.status(404).json({ message: "Invalid Data!" });
+  }
+
+  return res.status(200).json({ posts });
+};

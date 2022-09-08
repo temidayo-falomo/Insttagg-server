@@ -4,6 +4,7 @@ import {
   // bookmarkCheck,
   deletePost,
   dislikePost,
+  findUserPosts,
   getAllPosts,
   getPostById,
   likePost,
@@ -21,5 +22,6 @@ postRouter.delete("/delete/:id", deletePost);
 postRouter.put("/like", likePost);
 postRouter.put("/comment", commentOnPost);
 postRouter.put("/unlike", dislikePost);
+postRouter.get("/user-posts/:id", findUserPosts);
 
 export default postRouter;
