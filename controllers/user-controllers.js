@@ -85,7 +85,6 @@ export const logIn = async (req, res, next) => {
     secure: true,
     maxAge: 10000 * 60 * 60,
     overwrite: true,
-    domain: ".herokuapp.com",
   });
 
   return res.status(200).json({
@@ -166,7 +165,6 @@ export const refreshToken = (req, res, next) => {
       secure: true,
       maxAge: 10000 * 60 * 60,
       overwrite: true,
-      domain: ".herokuapp.com",
     });
 
     req.id = user.id;
