@@ -81,11 +81,11 @@ export const logIn = async (req, res, next) => {
   res.cookie("COOKIE_KEY", token, {
     // path: "/",
     // expires: new Date(Date.now() + 1000 * 1000),
-    sameSite: "lax",
+    sameSite: "none",
     secure: true,
     maxAge: 10000 * 60 * 60,
     overwrite: true,
-    // domain: "https://insttagg.herokuapp.com",
+    domain: "https://insttagg.herokuapp.com",
   });
 
   return res.status(200).json({
@@ -162,11 +162,11 @@ export const refreshToken = (req, res, next) => {
     res.cookie(String(user.id), token, {
       // path: "/",
       // expires: new Date(Date.now() + 10000 * 10000),
-      sameSite: "lax",
+      sameSite: "none",
       secure: true,
       maxAge: 10000 * 60 * 60,
       overwrite: true,
-      // domain: "https://insttagg.herokuapp.com",
+      domain: "https://insttagg.herokuapp.com",
     });
 
     req.id = user.id;
