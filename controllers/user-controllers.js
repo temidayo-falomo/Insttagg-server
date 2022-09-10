@@ -176,7 +176,7 @@ export const getAllUsers = async (req, res) => {
   let users;
 
   try {
-    users = await User.find();
+    users = await User.find({}, "-password");
   } catch (error) {
     console.log(error);
   }
