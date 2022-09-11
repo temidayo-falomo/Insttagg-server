@@ -33,7 +33,13 @@ const PostSchema = new Schema({
     required: true,
   },
   comments: [
-    { name: String, avatar: String, userId: String, commentText: String },
+    {
+      name: String,
+      avatar: String,
+      userId: String,
+      commentText: String,
+      userInfoName: String,
+    },
   ],
   likes: [
     {

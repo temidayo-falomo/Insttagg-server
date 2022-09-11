@@ -133,6 +133,7 @@ export const commentOnPost = async (req, res) => {
     avatar: req.body.avatar,
     userId: req.body.userId,
     commentText: req.body.commentText,
+    userInfoName: req.body.userInfoName,
   };
 
   try {
