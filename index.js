@@ -17,7 +17,7 @@ app.use(
     origin: [
       "https://insttagg.herokuapp.com",
       "https://api.cloudinary.com",
-      "http://localhost:3000",
+      // "http://localhost:3000",
       "https://random-word-api.herokuapp.com/word",
       "https://www.passwordrandom.com",
     ],
