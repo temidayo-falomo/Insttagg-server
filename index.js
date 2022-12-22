@@ -18,6 +18,7 @@ app.use(
       "https://insttagg.herokuapp.com",
       "https://api.cloudinary.com",
       "http://localhost:3000",
+      "https://insttagg-client.vercel.app",
     ],
     credentials: true,
     allowedHeaders:
