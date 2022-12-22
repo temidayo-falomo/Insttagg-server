@@ -96,6 +96,8 @@ export const logIn = async (req, res, next) => {
 //*Verify Token Function
 //Verify Token, Then Get User(Check routes folder for context)
 
+//findUser
+
 export const verifyToken = async (req, res, next) => {
   const cookies = req.headers.cookie;
   let token;
@@ -255,6 +257,7 @@ export const followUser = async (req, res) => {
     existingUser = await User.findByIdAndUpdate(currentUser, {
       $push: { following: userToAddToDetails },
     });
+
   } catch (error) {
     console.log(error);
   }
@@ -266,7 +269,7 @@ export const followUser = async (req, res) => {
   return res.status(200).json({ message: "Successfully Followed" });
 };
 
-//friends are highlighted in FE
+//Friends are highlighted in FE
 
 export const unfollowUser = async (req, res) => {
   const userToBeUnFollowed = req.body.userToBeUnFollowed;
