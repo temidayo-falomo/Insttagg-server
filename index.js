@@ -41,7 +41,7 @@ mongoose
     `mongodb+srv://temidayo:H26VmfkBFuvc5Het@undev.nc7mk.mongodb.net/undev?retryWrites=true&w=majority`
   )
   .then(() => {
-    app.listen(process.env.PORT || 5600);
+    app.listen(process.env.PORT);
   })
   .then(() => {
     console.log("Connected To Database....");
