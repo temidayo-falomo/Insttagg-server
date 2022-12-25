@@ -37,6 +37,7 @@ app.use("/api/posts", postRouter);
 app.use("/api/bookmarks", bookmarkRouter);
 app.use("/api/messages", messageRouter);
 
+mongoose.set("strictQuery", false);
 mongoose
   .connect(
     `mongodb+srv://temidayo:H26VmfkBFuvc5Het@undev.nc7mk.mongodb.net/undev?retryWrites=true&w=majority`
