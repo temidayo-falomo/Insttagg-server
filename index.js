@@ -6,10 +6,10 @@ dotenv.config();
 
 import cookieParser from "cookie-parser";
 
-import userRouter from "./routes/user-routes";
-import postRouter from "./routes/post-routes";
-import bookmarkRouter from "./routes/bookmark-routes";
-import messageRouter from "./routes/message-routes";
+import userRouter from "./routes/user-routes.js";
+import postRouter from "./routes/post-routes.js";
+import bookmarkRouter from "./routes/bookmark-routes.js";
+import messageRouter from "./routes/message-routes.js";
 
 const app = express();
 
@@ -43,7 +43,7 @@ mongoose
     `mongodb+srv://temidayo:H26VmfkBFuvc5Het@undev.nc7mk.mongodb.net/undev?retryWrites=true&w=majority`
   )
   .then(() => {
-    app.listen(process.env.PORT);
+    app.listen(process.env.PORT || 9000);
   })
   .then(() => {
     console.log("Connected To Database....");

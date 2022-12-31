@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel index.js -d dist",
-    "start": "npm run build && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build && node dist/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,12 +16,12 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.8.1",
-    "nodemon": "^2.0.20"
+    "mongoose": "^6.8.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.7",
-    "@babel/preset-env": "^7.20.2"
+    "@babel/preset-env": "^7.20.2",
+    "nodemon": "^2.0.20"
   }
 }
