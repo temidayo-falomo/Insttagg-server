@@ -16,7 +16,6 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://insttagg.herokuapp.com",
       "https://api.cloudinary.com",
       "http://localhost:3000",
       "https://insttagg-client.vercel.app",
@@ -40,9 +39,7 @@ app.use("/api/messages", messageRouter);
 mongoose.set("strictQuery", false);
 
 mongoose
-  .connect(
-    `mongodb+srv://temidayo:H26VmfkBFuvc5Het@undev.nc7mk.mongodb.net/undev?retryWrites=true&w=majority`
-  )
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     app.listen(process.env.PORT || 9000);
   })
